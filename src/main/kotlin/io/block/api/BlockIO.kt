@@ -4,8 +4,7 @@ import com.google.gson.Gson
 import io.block.api.Constants.Methods
 import io.block.api.Constants.Params
 import io.block.api.Constants.Values
-import io.block.api.model.*
-import io.block.api.model.Response.*
+import io.block.api.Response.*
 import org.apache.http.HttpStatus
 import org.apache.http.NameValuePair
 import org.apache.http.client.entity.UrlEncodedFormEntity
@@ -31,7 +30,7 @@ class BlockIO(private val apiKey: String) {
 
     /**
      * Requests the balance of the account associated with this clients' API key
-     * @return An {@link io.block.api.model.AccountBalance} object containing the balances
+     * @return An {@link io.block.api.AccountBalance} object containing the balances
      * @throws BlockIOException
      */
     @Throws(BlockIOException::class)
@@ -42,7 +41,7 @@ class BlockIO(private val apiKey: String) {
     /**
      * Requests the creation of a new address for the account associated with the clients' API key
      * @param label Optional label for the new address. null or "" for random label
-     * @return A {@link io.block.api.model.NewAddress} object containing information about the new address
+     * @return A {@link io.block.api.NewAddress} object containing information about the new address
      * @throws BlockIOException
      */
     @Throws(BlockIOException::class)
@@ -56,7 +55,7 @@ class BlockIO(private val apiKey: String) {
 
     /**
      * Requests a list of addresses in the account associated with this clients' API key
-     * @return An {@link io.block.api.model.AccountAddresses} object containing the addresses
+     * @return An {@link io.block.api.AccountAddresses} object containing the addresses
      * @throws BlockIOException
      */
     @Throws(BlockIOException::class)
@@ -68,7 +67,7 @@ class BlockIO(private val apiKey: String) {
      * Requests balance(s) of given address(es) in the account associated with this clients' API key <br>
      * Make sure that the addresses actually exist in the account or the whole call will fail
      * @param addresses A String array containing the addresses to request balances for
-     * @return An {@link io.block.api.model.AddressBalances} object containing the balances
+     * @return An {@link io.block.api.AddressBalances} object containing the balances
      * @throws BlockIOException
      */
     @Throws(BlockIOException::class)
@@ -87,7 +86,7 @@ class BlockIO(private val apiKey: String) {
      * Requests balance(s) of given label(s) in the account associated with this clients' API key <br>
      * Make sure that the labels actually exist in the account or the whole call will fail
      * @param labels A String array containing the labels to request balances for
-     * @return An {@link io.block.api.model.AddressBalances} object containing the balances
+     * @return An {@link io.block.api.AddressBalances} object containing the balances
      * @throws BlockIOException
      */
     @Throws(BlockIOException::class)
@@ -105,7 +104,7 @@ class BlockIO(private val apiKey: String) {
     /**
      * Requests the address with the given label from the account associated with this clients' API key
      * @param label The label for which to request the address for
-     * @return An {@link io.block.api.model.AddressByLabel} object containing the address and additional info about it
+     * @return An {@link io.block.api.AddressByLabel} object containing the address and additional info about it
      * @throws BlockIOException
      */
     @Throws(BlockIOException::class)
@@ -123,7 +122,7 @@ class BlockIO(private val apiKey: String) {
      * @param address Target address
      * @param amount Amount to withdraw
      * @param secretPin The secret PIN you set at block.io to authorize and sign the withdrawal
-     * @return A {@link io.block.api.model.Withdrawal} object containing information about the sent transaction.
+     * @return A {@link io.block.api.Withdrawal} object containing information about the sent transaction.
      * @throws BlockIOException
      */
     @Throws(BlockIOException::class)
@@ -142,7 +141,7 @@ class BlockIO(private val apiKey: String) {
      *                          You must not mix target types!
      * @param targetType This is mandatory and defines what type of targets this withdrawal goes to. One of {@link io.block.api.BlockIO.ParamType}.
      * @param secretPin The secret PIN you set at block.io to authorize and sign the withdrawal
-     * @return A {@link io.block.api.model.Withdrawal} object containing information about the sent transaction.
+     * @return A {@link io.block.api.Withdrawal} object containing information about the sent transaction.
      * @throws BlockIOException
      */
     @Throws(BlockIOException::class)
@@ -230,7 +229,7 @@ class BlockIO(private val apiKey: String) {
     /**
      * Requests prices of the currency of the account associated with this clients' API key
      * @param baseCurrency Optional base currency to return prices in. null or "" to get prices in all available base currencies
-     * @return A {@link io.block.api.model.Prices} object containing price information in one or more base currency from one or more exchange
+     * @return A {@link io.block.api.Prices} object containing price information in one or more base currency from one or more exchange
      * @throws BlockIOException
      */
     @Throws(BlockIOException::class)
@@ -247,7 +246,7 @@ class BlockIO(private val apiKey: String) {
     /**
      * Checks the given address(es) for being Block.io Green Address(es)
      * @param addresses A String array containing the addresses to request status for
-     * @return An {@link io.block.api.model.GreenAddresses} object containing the subset of the given addresses that are green
+     * @return An {@link io.block.api.GreenAddresses} object containing the subset of the given addresses that are green
      * @throws BlockIOException
      */
     @Throws(BlockIOException::class)

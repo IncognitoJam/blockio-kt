@@ -1,6 +1,5 @@
 package io.block.api
 
-import io.block.api.model.WithdrawSignRequest
 import org.bouncycastle.asn1.ASN1Integer
 import org.bouncycastle.asn1.DERSequenceGenerator
 import org.bouncycastle.asn1.sec.SECNamedCurves
